@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="gameContainer">
+      <p>
+      <img src="image2.png" alt="Image" height="200" width="450"/>
+      <h1>Random Number Game!</h1>
+      <h2>fun!</h2>
+      <p>Guess a Number from 1 to 100!</p>
+      <input type = "number" id = "guessInput" place holder = "Put a Number
+      here" min = "1" max = "100">
+      <button onclick="checkUserGuess()">Check</button>
+      <p id="message"></p>
+      <h3>haha!</h>
+    </div>
+
+        <script> //Java
+          let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+          function checkUserGuess() {
+            const userGuess = document.getElementById("guessInput").value;
+            const message = document.getElementById("message");
+
+            if (userGuess == randomNumber) {
+              message.textContent = `You are Correct!`;
+            } else if (userGuess < randomNumber) {
+              message.textContent = "Higher. Try Again.";
+            } else if (userGuess > randomNumber) {
+              message.textContent = "Lower. Try Again.";
+            } else {
+              message.textContent = "Put a number!!";
+            }
+            document.getElementById("guessInput").value = "";
+            document.getElementById("guessInput").focus();
+          }
+        </script>
+  </body>
+</html>
